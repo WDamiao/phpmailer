@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Conexão com o banco (PDO)
-$pdo = new PDO("mysql:host=wdbanconovo.mysql.dbaas.com.br;dbname=wdbanconovo", "wdbanconovo", "Teste@3030");
+$pdo = new PDO("mysql:host=DIGITE SEU HOST DO BANCO DE DADOS;dbname= DIGITE O NOME DO BANCO", "DIGITE USUARIO DO BANCO", "SENHA DO BANCO");
 
 
 // Dados do formulário
@@ -23,16 +23,16 @@ $mail = new PHPMailer(true);
 try {
     // Configurações do PHPMailer
     $mail->isSMTP();
-    $mail->Host = 'email-ssl.com.br';
+    $mail->Host = 'DIGITE SERVIDOR SMTP';
     $mail->SMTPAuth = true;
-    $mail->Username = 'admin@macedoff.com.br';
-    $mail->Password = 'Teste@30303030';
+    $mail->Username = 'DIGITE O EMAIL DE REMETENTE';
+    $mail->Password = 'SENHA DO EMAIL';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
     // Remetente e destinatário
-    $mail->setFrom('admin@macedoff.com.br', 'Remetente');
-    $mail->addAddress('suportelocaweb09@gmail.com', 'Destinatário');
+    $mail->setFrom('DIGITE O EMAIL', 'Remetente');
+    $mail->addAddress('DIGITE O DESTINATARIO', 'Destinatário');
 
     // Conteúdo do e-mail
     $mail->isHTML(true);
