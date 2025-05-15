@@ -7,7 +7,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Conexão com o banco (PDO)
-$pdo = new PDO("mysql:host=DIGITE SEU HOST DO BANCO DE DADOS;dbname= DIGITE O NOME DO BANCO", "DIGITE USUARIO DO BANCO", "SENHA DO BANCO");
+//Remova o "#" caso queira implementar a conexão com o banco de dados
+#$pdo = new PDO("mysql:host=DIGITE SEU HOST DO BANCO DE DADOS;dbname= DIGITE O NOME DO BANCO", "DIGITE USUARIO DO BANCO", "SENHA DO BANCO"); 
 
 
 // Dados do formulário
@@ -44,10 +45,11 @@ try {
     $mail->send();
 
     // Salva no banco de dados após o envio
-    $stmt = $pdo->prepare("INSERT INTO emails_enviados (destinatario, assunto, mensagem, data_envio) VALUES (?, ?, ?, NOW())");
-    $stmt->execute([
-	    $email, $assunto, $mensagem
-    ]);
+    //Remova os "#" caso queira implementar a conexão com o banco de dados
+    #$stmt = $pdo->prepare("INSERT INTO emails_enviados (destinatario, assunto, mensagem, data_envio) VALUES (?, ?, ?, NOW())");
+    #$stmt->execute([
+	#    $email, $assunto, $mensagem
+    #]);
 
     echo 'E-mail enviado e salvo com sucesso!';
 } catch (Exception $e) {
