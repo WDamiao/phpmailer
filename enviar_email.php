@@ -42,12 +42,18 @@ try {
     <p><strong>Email:</strong> {$email}</p>
     <p><strong>Mensagem:</strong><br>" . nl2br(htmlspecialchars($mensagem)) . "</p>
 ";
+
+    // Corpo alternativo em texto simples (para clientes de e-mail sem suporte a HTML)
+    $corpoTexto = "Nova mensagem do formulário:\n\n" .
+              "Nome: {$nome}\n" .
+              "Email: {$email}\n" .
+              "Mensagem:\n{$mensagem}";
 	
     // Conteúdo do e-mail
     $mail->isHTML(true);
-    $mail->Subject = 'Teste PHP Mailer';
+    $mail->Subject = $assunto;
     $mail->Body    = $corpoEmail;
-    $mail->AltBody = 'Mensagem em texto simples';
+    $mail->AltBody = $corpoTexto;
 
     // Envia o e-mail
     $mail->send();
