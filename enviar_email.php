@@ -32,13 +32,21 @@ try {
     $mail->Port = 465;
 
     // Remetente e destinatário
-    $mail->setFrom('DIGITE O EMAIL', 'Remetente');
+    $mail->setFrom('DIGITE O EMAIL', 'Formulario PHP Mailer');
     $mail->addAddress('DIGITE O DESTINATARIO', 'Destinatário');
 
+    // Corpo em HTML
+    $corpoEmail = "
+    <h2>Nova mensagem do formulário</h2>
+    <p><strong>Nome:</strong> {$nome}</p>
+    <p><strong>Email:</strong> {$email}</p>
+    <p><strong>Mensagem:</strong><br>" . nl2br(htmlspecialchars($mensagem)) . "</p>
+";
+	
     // Conteúdo do e-mail
     $mail->isHTML(true);
     $mail->Subject = 'Teste PHP Mailer';
-    $mail->Body    = $mensagem;
+    $mail->Body    = $corpoEmail;
     $mail->AltBody = 'Mensagem em texto simples';
 
     // Envia o e-mail
