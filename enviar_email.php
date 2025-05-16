@@ -40,6 +40,7 @@ try {
     <h2>Nova mensagem do formulário</h2>
     <p><strong>Nome:</strong> {$nome}</p>
     <p><strong>Email:</strong> {$email}</p>
+    <p><strong>Assunto:</strong> {$assunto}</p>
     <p><strong>Mensagem:</strong><br>" . nl2br(htmlspecialchars($mensagem)) . "</p>
 ";
 
@@ -47,6 +48,7 @@ try {
     $corpoTexto = "Nova mensagem do formulário:\n\n" .
               "Nome: {$nome}\n" .
               "Email: {$email}\n" .
+	      "Assunto: {$assunto}\n" .
               "Mensagem:\n{$mensagem}";
 	
     // Conteúdo do e-mail
