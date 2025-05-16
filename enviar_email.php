@@ -51,7 +51,7 @@ try {
 	#    $email, $assunto, $mensagem
     #]);
 
-    echo 'E-mail enviado e salvo com sucesso!';
+    echo 'E-mail enviado com sucesso!';
 } catch (Exception $e) {
     echo "Erro ao enviar o e-mail: {$mail->ErrorInfo}";
 }
